@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Luciano Fernández | Desarrollo web full stack</title>
+  <meta name="claude:viewport-fit-sides" content="cover">
+  <meta name="description" content="Luciano Fernández, programador web full stack en San Miguel de Tucumán. Sitios, aplicaciones web a medida, APIs e integraciones.">
+  <meta property="og:title" content="Luciano Fernández | Desarrollo web full stack">
+  <meta property="og:description" content="Sitios, aplicaciones web a medida, APIs e integraciones. Del primer boceto a la versión publicada.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#080c0a">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500&display=swap">
+  <!-- Pantalla de carga. Nunca aparece con movimiento reducido. -->
+  <script>
+    (function () {
+      // true  = se muestra cada vez que se abre el sitio (ideal para probarla)
+      // false = sólo en la primera visita de cada sesión (recomendado al publicar)
+      var SHOW_EVERY_TIME = false;
+      var show = true;
+      try {
+        if (!SHOW_EVERY_TIME && sessionStorage.getItem("lf-loaded") === "1") show = false;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) show = false;
+      } catch (e) {}
+      if (show) document.documentElement.classList.add("is-loading");
+    })();
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- PANTALLA DE CARGA -->
+  <div class="loader" data-loader aria-hidden="true">
+    <div class="loader-bar loader-bar-top">
+      <span class="loader-fill" data-loader-fill></span>
+      <span class="loader-tag mono">GET /portfolio</span>
+    </div>
+
+    <div class="loader-center">
+      <svg class="loader-mark" viewBox="0 0 120 120" aria-hidden="true">
+        <rect class="loader-mark-track" x="4" y="4" width="112" height="112" rx="26"/>
+        <rect class="loader-mark-draw" x="4" y="4" width="112" height="112" rx="26" pathLength="100" data-loader-draw/>
+        <text x="27" y="74" class="loader-mark-text">LF</text>
+        <rect class="loader-mark-caret" x="84" y="44" width="9" height="34" rx="1"/>
+      </svg>
+      <p class="loader-name">Luciano <span>Fernández</span></p>
+      <p class="loader-sub mono">Portfolio · Desarrollo web full stack</p>
+      <p class="loader-status mono"><span data-loader-msg>Conectando</span><span class="loader-dots" aria-hidden="true"></span></p>
+    </div>
+
+    <div class="loader-bar loader-bar-bottom">
+      <span class="loader-fill" data-loader-fill></span>
+      <span class="loader-tag mono"><span data-loader-pct>000</span>%</span>
+    </div>
+
+    <button class="loader-skip mono" type="button" data-loader-skip tabindex="-1">Saltar intro →</button>
+  </div>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <!-- Grilla de puntos interactiva: fondo fijo de todo el sitio -->
+  <canvas class="bg-grid" data-grid aria-hidden="true"></canvas>
+  <!-- Imagen de fondo como marca de agua (fija detrás de todo el sitio) -->
+  <div class="bg-watermark" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <nav class="nav wrap" aria-label="Principal">
+      <a class="brand" href="#inicio" aria-label="Luciano Fernández, ir al inicio">
+        <span class="brand-mark" aria-hidden="true">LF<span class="caret"></span></span>
+        <span class="brand-text" aria-hidden="true">
+          <span class="brand-name">Luciano Fernández</span>
+          <span class="brand-role mono"><span class="brand-dot"></span>full stack · tucumán</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-nav-toggle>
+        <span class="sr-only">Abrir menú</span>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+
+      <div class="nav-menu" id="nav-menu" data-nav-menu>
+        <!-- Cápsula con indicador que se desliza al link activo o señalado -->
+        <div class="nav-pill" data-nav-pill>
+          <span class="nav-indicator" data-nav-indicator aria-hidden="true"></span>
+          <ul class="nav-list">
+            <li><a class="nav-link" href="#servicios"><span class="slash">/</span>servicios</a></li>
+            <li><a class="nav-link" href="#proyectos"><span class="slash">/</span>proyectos</a></li>
+            <li><a class="nav-link" href="#proceso"><span class="slash">/</span>proceso</a></li>
+            <li><a class="nav-link" href="#sobre-mi"><span class="slash">/</span>sobre-mí</a></li>
+          </ul>
+        </div>
+        <a class="nav-gh" href="https://github.com" target="_blank" rel="noopener noreferrer" data-github-link aria-label="Mi perfil de GitHub (abre en una pestaña nueva)" title="GitHub">
+          <svg class="icon icon-gh" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          <span class="nav-gh-label">GitHub</span>
+        </a>
+        <a class="nav-cta" href="#contacto">
+          Contame tu proyecto
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </nav>
+    <!-- Progreso de lectura de la página -->
+    <span class="header-progress" data-header-progress aria-hidden="true"></span>
+  </header>
+
+  <main id="contenido">
+    <!-- INICIO -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <!-- Presentación centrada: "Hola, soy" + nombre + profesión, con flotación suave -->
+      <div class="hero-intro wrap">
+        <p class="status-chip" data-status-chip>
+          <span class="pulse" aria-hidden="true"></span>
+          <span data-availability></span>
+          <span class="chip-sep" aria-hidden="true">·</span>
+          <span class="chip-loc" data-bind="person.location"></span>
+        </p>
+
+        <div class="hero-float">
+          <p class="hero-hello">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>
+            Hola, soy
+          </p>
+          <h1 class="hero-name" id="hero-title">
+            <span data-bind="person.name"></span> <span data-bind="person.surname"></span>
+          </h1>
+          <p class="hero-role-big" data-bind="person.role"></p>
+        </div>
+      </div>
+
+      <div class="hero-inner wrap">
+        <div class="hero-copy">
+          <p class="hero-slogan" data-bind="person.slogan"></p>
+          <p class="hero-tagline" data-bind="person.tagline"></p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacto">
+              Contame tu proyecto
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="#proyectos">Ver proyectos</a>
+          </div>
+
+          <ul class="promises" data-promises></ul>
+        </div>
+
+        <!-- CUBO 3D: el frente es la respuesta de la API (frontend) y la cara de
+             atrás el código del servidor que la genera (backend).
+             Sigue al cursor, se gira arrastrando y con las flechas del teclado. -->
+        <div class="cube-scene" data-cube-scene>
+          <div class="cube-float">
+            <div class="cube" data-cube tabindex="0" role="group" aria-roledescription="cubo interactivo"
+                 aria-label="Cubo 3D con el resumen del perfil. Arrastralo o usá las flechas del teclado para girarlo.">
+              <!-- Frente -->
+              <figure class="cube-face cube-front terminal" aria-label="Resumen del perfil en formato de respuesta de API">
+                <div class="terminal-bar">
+                  <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <span class="terminal-title mono">perfil.json</span>
+                  <button class="replay" type="button" data-replay aria-label="Repetir animación del panel">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg>
+                  </button>
+                </div>
+                <pre class="terminal-body mono" data-terminal aria-hidden="true"></pre>
+              </figure>
+
+              <!-- Atrás: el servidor que responde -->
+              <div class="cube-face cube-back terminal" aria-hidden="true">
+                <div class="terminal-bar">
+                  <span class="dots"><i></i><i></i><i></i></span>
+                  <span class="terminal-title mono">server.js</span>
+                </div>
+<pre class="terminal-body mono"><span class="t-dim">// el otro lado de la respuesta</span>
+<span class="t-method">import</span> express <span class="t-method">from</span> <span class="t-str">"express"</span><span class="t-pun">;</span>
+<span class="t-method">import</span> perfil <span class="t-method">from</span> <span class="t-str">"./perfil.json"</span><span class="t-pun">;</span>
+
+<span class="t-method">const</span> app <span class="t-pun">=</span> <span class="t-key">express</span><span class="t-pun">();</span>
+
+app<span class="t-pun">.</span><span class="t-key">get</span><span class="t-pun">(</span><span class="t-str">"/perfil"</span><span class="t-pun">, (</span>req<span class="t-pun">,</span> res<span class="t-pun">) =&gt; {</span>
+  res<span class="t-pun">.</span><span class="t-key">json</span><span class="t-pun">(</span>perfil<span class="t-pun">);</span>
+<span class="t-pun">});</span>
+
+app<span class="t-pun">.</span><span class="t-key">listen</span><span class="t-pun">(</span><span class="t-ok">3000</span><span class="t-pun">);</span>
+<span class="t-dim">// ✓ listo para recibir tu proyecto</span></pre>
+              </div>
+
+              <!-- Laterales y tapas -->
+              <div class="cube-face cube-right" aria-hidden="true"><div class="minimap" data-minimap></div></div>
+              <div class="cube-face cube-left" aria-hidden="true"><div class="minimap" data-minimap></div></div>
+              <div class="cube-face cube-top" aria-hidden="true"><span class="mono">LF · full stack</span></div>
+              <div class="cube-face cube-bottom" aria-hidden="true"></div>
+            </div>
+          </div>
+          <div class="cube-shadow" aria-hidden="true"></div>
+          <p class="cube-hint mono" data-cube-hint aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M8 12h8M8 12l3-3M8 12l3 3M16 12l-3-3M16 12l-3 3"/></svg>
+            Arrastrá para girar
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPECIALIDADES -->
+    <section class="specialties-band" id="especialidades" aria-labelledby="spec-title">
+      <div class="wrap">
+        <h2 class="sub-title" id="spec-title">En qué me especializo</h2>
+        <ul class="specialties" data-specialties></ul>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="section" id="servicios" aria-labelledby="services-title">
+      <div class="wrap">
+        <header class="section-head section-head-row">
+          <div>
+            <p class="route mono"><span>GET</span> /servicios</p>
+            <h2 class="section-title" id="services-title">Qué puedo hacer por vos</h2>
+          </div>
+          <p class="section-lede">Elegí el punto de partida. Si no sabés cuál encaja, contame el problema y lo vemos juntos.</p>
+        </header>
+        <div class="services" data-services></div>
+
+        <h3 class="sub-title reasons-title">Por qué trabajar conmigo</h3>
+        <ul class="reasons" data-reasons></ul>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section class="section" id="proyectos" aria-labelledby="projects-title">
+      <div class="wrap">
+        <header class="section-head section-head-row">
+          <div>
+            <p class="route mono"><span>GET</span> /proyectos</p>
+            <h2 class="section-title" id="projects-title">Proyectos destacados</h2>
+          </div>
+          <div class="filters" role="group" aria-label="Filtrar proyectos por tecnología" data-filters></div>
+        </header>
+        <p class="sr-only" aria-live="polite" data-filter-status></p>
+        <div class="projects" data-projects></div>
+      </div>
+    </section>
+
+    <!-- LLAMADO A LA ACCIÓN INTERMEDIO -->
+    <aside class="cta-band" aria-labelledby="cta-band-title">
+      <div class="wrap cta-band-inner">
+        <div>
+          <h2 class="cta-band-title" id="cta-band-title">¿Tu proyecto podría ser <span class="cta-blink">el próximo</span> de esta lista?</h2>
+          <p class="cta-band-text">Contame la idea aunque esté verde. La primera charla sirve para ordenarla.</p>
+        </div>
+        <a class="btn btn-primary" href="#contacto">
+          Empezar la conversación
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </aside>
+
+    <!-- PROCESO -->
+    <section class="section" id="proceso" aria-labelledby="process-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="route mono"><span>GET</span> /proceso</p>
+          <h2 class="section-title" id="process-title">Cómo trabajamos juntos</h2>
+        </header>
+        <ol class="process" data-process></ol>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section class="section" id="sobre-mi" aria-labelledby="about-title">
+      <div class="wrap about">
+        <header class="section-head">
+          <p class="route mono"><span>GET</span> /sobre-mí</p>
+          <h2 class="section-title" id="about-title">Sobre mí</h2>
+        </header>
+        <div class="about-body">
+          <div class="about-text">
+            <p class="about-lead" data-about-lead></p>
+            <div class="about-more" data-about></div>
+          </div>
+          <div class="about-side">
+            <figure class="about-photo" data-about-photo hidden>
+              <img data-about-photo-img alt="" loading="lazy" decoding="async">
+              <figcaption class="about-photo-tag mono"><span class="pulse" aria-hidden="true"></span>Luciano · 21</figcaption>
+            </figure>
+            <dl class="facts" data-facts></dl>
+          </div>
+        </div>
+        <ul class="badges" data-badges></ul>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA / HABILIDADES -->
+    <section class="section" id="experiencia" aria-labelledby="exp-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="route mono"><span>GET</span> /experiencia</p>
+          <h2 class="section-title" id="exp-title">Experiencia y habilidades</h2>
+        </header>
+        <div class="exp-grid">
+          <div>
+            <h3 class="sub-title">Recorrido</h3>
+            <ol class="timeline" data-timeline></ol>
+          </div>
+          <div>
+            <h3 class="sub-title">Stack</h3>
+            <div class="stack" data-skills></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS (se oculta si no hay ninguno cargado) -->
+    <section class="section" id="testimonios" aria-labelledby="testimonials-title" data-testimonials-section hidden>
+      <div class="wrap">
+        <header class="section-head">
+          <p class="route mono"><span>GET</span> /testimonios</p>
+          <h2 class="section-title" id="testimonials-title">Lo que dicen quienes trabajaron conmigo</h2>
+        </header>
+        <div class="testimonials" data-testimonials></div>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="section" id="preguntas" aria-labelledby="faq-title">
+      <div class="wrap faq-layout">
+        <header class="section-head">
+          <p class="route mono"><span>GET</span> /preguntas</p>
+          <h2 class="section-title" id="faq-title">Preguntas frecuentes</h2>
+          <p class="section-lede faq-lede">¿No encontrás tu duda? <a href="#contacto">Escribime</a> y te respondo.</p>
+        </header>
+        <div class="faq" data-faq></div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section contact" id="contacto" aria-labelledby="contact-title">
+      <!-- Título centrado con franja que se desliza de derecha a izquierda en bucle -->
+      <header class="contact-head">
+        <p class="route mono wrap"><span>POST</span> /contacto</p>
+        <h2 class="sr-only" id="contact-title">Hablemos</h2>
+        <div class="marquee" data-marquee aria-hidden="true">
+          <div class="marquee-track" data-marquee-track>
+            <div class="marquee-group" data-marquee-group>
+              <span class="marquee-word">Hablemos</span><span class="marquee-sep"></span>
+              <span class="marquee-word is-outline">Hablemos</span><span class="marquee-sep"></span>
+              <span class="marquee-word">Hablemos</span><span class="marquee-sep"></span>
+              <span class="marquee-word is-outline">Hablemos</span><span class="marquee-sep"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="wrap contact-layout">
+        <div class="contact-side">
+          <p class="contact-intro" data-bind="contact.intro"></p>
+
+          <p class="response-time">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span>Tiempo de respuesta: <strong data-bind="contact.responseTime"></strong></span>
+          </p>
+
+          <div class="email-row">
+            <a class="email" href="#" data-email-link></a>
+            <button class="btn btn-ghost btn-sm" type="button" data-copy-email>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+              <span>Copiar email</span>
+            </button>
+          </div>
+
+          <ul class="socials" data-socials></ul>
+        </div>
+
+        <!-- Armador de consultas: genera el mensaje listo para enviar -->
+        <form class="brief" id="brief" data-brief novalidate aria-labelledby="brief-title">
+          <div class="brief-head">
+            <h3 class="brief-title" id="brief-title">Armá tu consulta</h3>
+            <span class="brief-time mono">≈ 1 minuto</span>
+          </div>
+
+          <fieldset class="field">
+            <legend class="label">¿Qué necesitás?</legend>
+            <div class="choice-group" data-brief-services></div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend class="label">¿Para cuándo?</legend>
+            <div class="choice-group" data-brief-timelines></div>
+          </fieldset>
+
+          <div class="field-row">
+            <div class="field">
+              <label class="label" for="brief-name">Tu nombre</label>
+              <input class="input" id="brief-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label class="label" for="brief-company">Empresa o proyecto <span class="optional">(opcional)</span></label>
+              <input class="input" id="brief-company" name="company" type="text" autocomplete="organization">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="brief-idea">Contame la idea</label>
+            <textarea class="input" id="brief-idea" name="idea" rows="4" required aria-describedby="brief-idea-hint" placeholder="Qué querés lograr, para quién es y si ya tenés algo hecho."></textarea>
+            <p class="hint" id="brief-idea-hint"><span data-idea-count>0</span> caracteres · con 2 o 3 líneas alcanza</p>
+          </div>
+
+          <p class="form-error" role="alert" data-brief-error></p>
+
+          <div class="brief-actions">
+            <button class="btn btn-primary" type="submit" data-send="email">
+              Enviar por Gmail
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 6 8 6 8-6M4 6h16v12H4z"/></svg>
+            </button>
+            <button class="btn btn-ghost" type="submit" data-send="whatsapp" data-whatsapp-btn hidden>Enviar por WhatsApp</button>
+            <button class="btn-link" type="button" data-copy-brief>Copiar mensaje</button>
+          </div>
+
+          <details class="brief-preview">
+            <summary class="mono">Ver el mensaje que se va a enviar</summary>
+            <pre class="mono" data-brief-preview></pre>
+          </details>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© <span data-year></span> <span data-bind="person.name"></span> <span data-bind="person.surname"></span> · <span data-bind="person.role"></span></p>
+      <p class="mono footer-meta" data-bind="person.coords"></p>
+      <div class="footer-actions">
+        <a class="footer-gh" href="https://github.com" target="_blank" rel="noopener noreferrer" data-github-link aria-label="Mi perfil de GitHub (abre en una pestaña nueva)"><svg class="icon icon-gh" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span></a>
+        <button class="btn-link" type="button" data-replay-intro>Ver la intro de nuevo</button>
+        <a class="to-top" href="#inicio">Volver arriba ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de contacto (aparece al pasar el inicio) -->
+  <!-- Con número de WhatsApp en data.js abre el chat directo; si no, lleva al contacto -->
+  <a class="float-cta" href="#contacto" data-float-cta>
+    <span class="pulse" aria-hidden="true"></span>
+    <svg class="icon float-cta-icon" viewBox="0 0 24 24" aria-hidden="true" hidden data-float-wa-icon><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z"/></svg>
+    Hablemos
+  </a>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+  <aside class="ph-notice" data-ph-notice hidden></aside>
+
+  <noscript>
+    <p class="noscript wrap">Este sitio necesita JavaScript para mostrar su contenido.</p>
+  </noscript>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
