@@ -23,11 +23,14 @@ GitHub Pages). No necesita configuración.
 ```
 portfolio/
 ├── index.html          Estructura de todas las secciones
+├── manifest.webmanifest  Datos para instalarlo en el celular
 ├── css/styles.css      Estilos, ordenados por sección (índice al principio del archivo)
 ├── js/data.js          TODO el contenido editable
 ├── js/main.js          Arma el contenido e interacciones
 └── assets/
     ├── favicon.svg
+    ├── apple-touch-icon.png  Íconos para la pantalla de inicio del celular
+    ├── icon-192.png / icon-512.png
     ├── fondo-marca.webp      Marca de agua del fondo
     ├── foto-luciano.webp     Foto de perfil (Sobre mí)
     ├── portada-grido.webp    Portadas de los proyectos

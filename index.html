@@ -19,7 +19,7 @@
     (function () {
       // true  = se muestra cada vez que se abre el sitio (ideal para probarla)
       // false = sólo en la primera visita de cada sesión (recomendado al publicar)
-      var SHOW_EVERY_TIME = false;
+      var SHOW_EVERY_TIME = true;
       var show = true;
       try {
         if (!SHOW_EVERY_TIME && sessionStorage.getItem("lf-loaded") === "1") show = false;
