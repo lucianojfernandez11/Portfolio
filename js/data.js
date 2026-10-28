@@ -157,7 +157,7 @@ window.PORTFOLIO = {
     lead:
       "Soy un desarrollador Full Stack que construye sistemas web a medida para negocios reales. Combino código limpio y diseño cuidado con algo que no se aprende en un curso: cinco años trabajando en la tesorería de una empresa, viendo de cerca cómo se mueven los números de un negocio. Por eso no solo programo pantallas: transformo procesos que hoy se llevan en planillas y cuadernos en herramientas claras que ahorran tiempo y evitan errores.",
     paragraphs: [
-      "Hoy desarrollo software a medida junto a Pablo Martín Bejas. Me ocupo de todo el recorrido: entender el problema, diseñar la solución, programar el frontend, el backend y la base de datos, y dejar el sistema funcionando.",
+      "Hoy desarrollo software a medida para negocios y profesionales. Me ocupo de todo el recorrido: entender el problema, diseñar la solución, programar el frontend, el backend y la base de datos, y dejar el sistema funcionando.",
     ],
     // Tarjetas destacadas debajo del texto. Usá sólo datos reales.
     // value: número que se anima al aparecer (opcional). icon: award, briefcase, layers, clock, check, globe
@@ -203,7 +203,6 @@ window.PORTFOLIO = {
         "Pagos en efectivo o transferencia y rendiciones de cada preventista",
         "Accesos por rol para administración y preventistas",
       ],
-      team: "Desarrollado junto a Pablo Martín Bejas",
       tags: ["Next.js", "TypeScript", "Tailwind CSS", "ASP.NET Core", "PostgreSQL"],
       // Portada diseñada para el portfolio. Podés reemplazarla por una captura real.
       image: "assets/portada-grido.webp",
@@ -224,7 +223,6 @@ window.PORTFOLIO = {
         "Ficha clínica con anamnesis, alertas y galería de fotos antes / después",
         "Gastos y balances de caja por sede y profesional",
       ],
-      team: "Fernández & Bejas",
       tags: ["React", "JavaScript", "C#", "PostgreSQL", "MySQL"],
       image: "assets/portada-odonto.webp",
       imageAlt: "Ficha clínica con odontograma interactivo, turnos del día y caja semanal",
@@ -259,7 +257,7 @@ window.PORTFOLIO = {
     {
       type: "Experiencia",
       title: "Desarrollador de software a medida",
-      place: "Fernández & Bejas · junto a Pablo Martín Bejas",
+      place: "Independiente · Freelance",
       period: "Actualidad",
       description: "Desarrollo de Grido Control (cuentas corrientes y cobranzas), la propuesta del sistema de gestión odontológica multisede y landing pages para comercios.",
     },
