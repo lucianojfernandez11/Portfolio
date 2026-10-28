@@ -155,14 +155,14 @@ window.PORTFOLIO = {
     photoAlt: "Luciano Fernández, programador web full stack",
     // Párrafo principal (grande). Escrito con lo que sé de vos: revisalo y ajustalo.
     lead:
-      "Soy un desarrollador Full Stack que construye sistemas web a medida para negocios reales. Combino código limpio y diseño cuidado con algo que no se aprende en un curso: cinco años trabajando en la tesorería de una empresa, viendo de cerca cómo se mueven los números de un negocio. Por eso no solo programo pantallas: transformo procesos que hoy se llevan en planillas y cuadernos en herramientas claras que ahorran tiempo y evitan errores.",
+      "Soy desarrollador Full Stack y construyo sistemas web a medida para negocios reales. Además de programar, hace tres años que trabajo en la tesorería de una empresa, donde controlo todos los días ingresos, pagos y cuentas de clientes. Ahí aprendí cómo se mueven los números de un negocio y dónde se pierden tiempo y plata: en planillas, cuadernos y tareas hechas a mano. Hoy convierto esos procesos en herramientas simples, claras y confiables.",
     paragraphs: [
-      "Hoy desarrollo software a medida para negocios y profesionales. Me ocupo de todo el recorrido: entender el problema, diseñar la solución, programar el frontend, el backend y la base de datos, y dejar el sistema funcionando.",
+      "Me encargo del proyecto de punta a punta: escucho qué necesitás, diseño la solución, programo el frontend, el backend y la base de datos, y lo dejo publicado y funcionando. Trabajás con una sola persona, que te habla claro, te responde rápido y conoce cada parte de tu sistema.",
     ],
     // Tarjetas destacadas debajo del texto. Usá sólo datos reales.
     // value: número que se anima al aparecer (opcional). icon: award, briefcase, layers, clock, check, globe
     badges: [
-      { icon: "award", value: 5, prefix: "", suffix: " años", title: "en gestión comercial", text: "Tesorería en Grido, 2020 – 2025" },
+      { icon: "award", value: 3, prefix: "", suffix: " años", title: "en gestión comercial", text: "Tesorería en Grido, 2023 – actualidad" },
       { icon: "briefcase", title: "Disponible para freelance", text: "Trabajo remoto, para clientes de todo el país" },
       { icon: "layers", value: 3, prefix: "", suffix: " rubros", title: "con sistemas propios", text: "Comercio, salud y vida nocturna" },
       { icon: "clock", value: 24, prefix: "< ", suffix: " h", title: "de respuesta", text: "Te contesto rápido y claro" },
@@ -265,7 +265,7 @@ window.PORTFOLIO = {
       type: "Experiencia",
       title: "Asistente de Tesorería",
       place: "Grido",
-      period: "2020 — 2025",
+      period: "2023 — Actualidad",
       description: "Gestión administrativa y de tesorería: control de ingresos y egresos, carga de datos y organización de documentación contable. Esa experiencia es la base de Grido Control.",
     },
     {
