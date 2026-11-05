@@ -191,7 +191,6 @@ window.PORTFOLIO = {
      - codeNote: aclaración que se muestra junto a los enlaces (p. ej. código privado) */
   projects: [
     {
-      featured: true,
       status: "Demo presentada al cliente",
       kind: "Sistema de gestión comercial",
       name: "Grido Control",
@@ -213,6 +212,7 @@ window.PORTFOLIO = {
       privateNote: "Sistema privado del cliente",
     },
     {
+      featured: true,
       status: "Online",
       kind: "SaaS para consultorios",
       name: "TurnoClaro",
@@ -226,7 +226,7 @@ window.PORTFOLIO = {
         "Demo pública para recorrer el sistema sin registrarse",
       ],
       tags: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Vercel"],
-      image: "assets/portada-turnoclaro.webp",
+      image: "assets/portada-turnoclaro-ancha.webp",
       imageAlt: "TurnoClaro en una notebook y en un celular: agenda del día con turnos confirmados y sin confirmar",
       demo: "https://turnoclaro-alpha.vercel.app/demo",
       demoLabel: "Ver demo",
