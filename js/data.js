@@ -187,7 +187,8 @@ window.PORTFOLIO = {
      - image: ruta opcional a una captura (p. ej. "assets/proyecto-1.webp").
               Si queda vacía se dibuja una portada geométrica automática.
      - demo / repo: URLs. demoLabel cambia el texto del botón.
-     - privateNote: si no hay enlaces, se muestra este texto y un botón "Pedir una demo" */
+     - privateNote: si no hay enlaces, se muestra este texto y un botón "Pedir una demo"
+     - codeNote: aclaración que se muestra junto a los enlaces (p. ej. código privado) */
   projects: [
     {
       featured: true,
@@ -210,6 +211,27 @@ window.PORTFOLIO = {
       demo: "",
       repo: "",
       privateNote: "Sistema privado del cliente",
+    },
+    {
+      status: "Online",
+      kind: "SaaS para consultorios",
+      name: "TurnoClaro",
+      description:
+        "Sistema de gestión de turnos para consultorios y clínicas, pensado como SaaS: cada consultorio se registra solo, prueba 14 días gratis y paga un plan mensual. Los pacientes reciben el recordatorio por WhatsApp y confirman o cancelan con un toque.",
+      highlights: [
+        "Agenda por profesional y por día, con horarios libres destacados",
+        "Recordatorios por WhatsApp con confirmación automática del paciente",
+        "Reservas online con link propio para cada consultorio",
+        "Multi-consultorio: registro con prueba gratis, planes y panel de administración",
+        "Demo pública para recorrer el sistema sin registrarse",
+      ],
+      tags: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Vercel"],
+      image: "assets/portada-turnoclaro.webp",
+      imageAlt: "TurnoClaro en una notebook y en un celular: agenda del día con turnos confirmados y sin confirmar",
+      demo: "https://turnoclaro-alpha.vercel.app/demo",
+      demoLabel: "Ver demo",
+      repo: "",
+      codeNote: "Código privado por ser un producto comercial · Disponible para revisión a pedido",
     },
     {
       status: "Propuesta · en desarrollo",
@@ -259,7 +281,7 @@ window.PORTFOLIO = {
       title: "Desarrollador de software a medida",
       place: "Independiente · Freelance",
       period: "Actualidad",
-      description: "Desarrollo de Grido Control (cuentas corrientes y cobranzas), la propuesta del sistema de gestión odontológica multisede y landing pages para comercios.",
+      description: "Desarrollo de TurnoClaro (SaaS de turnos para consultorios), Grido Control (cuentas corrientes y cobranzas), la propuesta del sistema de gestión odontológica multisede y landing pages para comercios.",
     },
     {
       type: "Experiencia",
@@ -288,7 +310,7 @@ window.PORTFOLIO = {
   // Armado a partir de lo que usaste en tus sistemas. Sumá o quitá lo que haga falta.
   skills: [
     { group: "Frontend", items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "JavaScript", "HTML", "CSS"] },
-    { group: "Backend", items: ["C#", "ASP.NET Core", "APIs REST", "Autenticación y roles"] },
+    { group: "Backend", items: ["C#", "ASP.NET Core", "Node.js", "Prisma", "APIs REST", "Autenticación y roles"] },
     { group: "Bases de datos", items: ["PostgreSQL", "MySQL", "SQL"] },
     { group: "Herramientas y nube", items: ["Git", "GitHub", "Docker", "AWS", "Vercel", "VS Code"] },
     { group: "Conocimiento de negocio", items: ["Cuentas corrientes y cobranzas", "Tesorería y caja", "Turnos y agendas"] },

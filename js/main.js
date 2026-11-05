@@ -233,6 +233,7 @@
     let links = "";
     if (hasUrl(p.demo)) links += extLink(p.demo, p.demoLabel || "Ver demo");
     if (hasUrl(p.repo)) links += extLink(p.repo, "Código");
+    if (links && p.codeNote) links += `<span class="plink-note mono">${txt(p.codeNote)}</span>`;
     if (!links) {
       links = `${p.privateNote ? `<span class="plink-note mono">${txt(p.privateNote)}</span>` : ""}
         <a class="plink" href="#contacto">Pedir una demo<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>`;
